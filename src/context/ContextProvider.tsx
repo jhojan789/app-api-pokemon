@@ -32,7 +32,11 @@ export function ContextProvider({ children }: { children: ReactNode }) {
 
   return (
     <Context.Provider
-      value={{ navbarItems, openMobileMenu, setOpenMobileMenu }}
+      value={{
+        navbarItems,
+        openMobileMenu,
+        setOpenMobileMenu,
+      }}
     >
       {children}
     </Context.Provider>
