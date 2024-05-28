@@ -33,7 +33,7 @@ export default function Home() {
 
   return (
     <main>
-      <section>
+      <section className="grid justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
         {pokemons.map((pokemon) => (
           <Card key={pokemon.id} pokemon={pokemon} />
         ))}

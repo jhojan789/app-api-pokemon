@@ -1,13 +1,10 @@
-export function Card() {
+export function Card({ pokemon }: { pokemon: Pokemon }) {
   return (
-    <div>
-      <h2>Title</h2>
-      <figure>
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQLcrKDpcDnZ3d8Ks4xq0OZIgFKRKk3QRQxK3-i9d6Zw&s"
-          alt=""
-        />
-      </figure>
+    <div className=" flex items-center w-full max-w-96 cursor-pointer border hover:shadow-lg bg-white hover:animate-bounce rounded-lg p-4">
+      <div className="w-full">
+        <img src={pokemon.image} alt="" className="w-full " />
+      </div>
+      <h2>{pokemon.name.toUpperCase()}</h2>
     </div>
   );
 }
