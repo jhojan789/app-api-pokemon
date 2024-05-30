@@ -17,3 +17,9 @@ type Context = {
   openMobileMenu: boolean;
   setOpenMobileMenu: React.Dispatch<React.SetStateAction<boolean>>;
 };
+
+interface LazyImageProps extends React.HTMLAttributes<HTMLDivElement> {
+  image: string;
+  placeholder: string;
+  loadingComponent?: JSX.Element;
+}
