@@ -1,10 +1,18 @@
 type Pokemon = {
   id: number;
   name: string;
-  type: string;
+  types: PokemonType[];
   order: number;
   image: string;
   cries: string;
+};
+
+type PokemonType = {
+  slot: number;
+  type: {
+    name: string;
+    url: string;
+  };
 };
 
 type NavbarItem = {

@@ -1,11 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import { LazyImage } from "./LazyImage";
 import { LoadingCard } from "./LoadingCard";
 
 export function Card({ pokemon }: { pokemon: Pokemon }) {
-  // const { isLoadedCard } = useContextApp();
+  const navigate = useNavigate();
+
   return (
     <>
-      <div className=" relative flex items-center w-full max-w-96 min-h-36 cursor-pointer border hover:shadow-lg bg-white hover:animate-bounce rounded-lg p-4">
+      <div
+        onClick={() => navigate(`/pokemons/${pokemon.id}`, { state: pokemon })}
+        className=" relative flex items-center w-full max-w-96 min-h-36 cursor-pointer border hover:shadow-lg bg-slate-300 hover:animate-bounce rounded-lg p-4"
+      >
         <LazyImage
           image={pokemon.image}
           placeholder=""
