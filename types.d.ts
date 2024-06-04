@@ -5,11 +5,21 @@ type Pokemon = {
   order: number;
   image: string;
   cries: string;
+  stats: StatType[];
 };
 
 type PokemonType = {
   slot: number;
   type: {
+    name: string;
+    url: string;
+  };
+};
+
+type StatType = {
+  base_stat: number;
+  effort: number;
+  stat: {
     name: string;
     url: string;
   };
@@ -23,7 +33,9 @@ type NavbarItem = {
 type Context = {
   navbarItems: NavbarItem[];
   openMobileMenu: boolean;
+  pokemons: Pokemon[];
   setOpenMobileMenu: React.Dispatch<React.SetStateAction<boolean>>;
+  setPokemons: React.Dispatch<React.SetStateAction<Pokemon[]>>;
 };
 
 interface LazyImageProps extends React.HTMLAttributes<HTMLDivElement> {

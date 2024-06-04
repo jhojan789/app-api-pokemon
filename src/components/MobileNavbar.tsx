@@ -7,7 +7,7 @@ export function MobileNavbar() {
 
   return (
     <div
-      className="fixed top-0 right-0 left-0 bottom-0"
+      className="z-20 fixed top-0 right-0 left-0 bottom-0"
       style={{
         backgroundColor: "rgba(97, 141, 97, 0.47)",
       }}
