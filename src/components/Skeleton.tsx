@@ -2,7 +2,7 @@ export function Skeleton({ qty }: { qty: number }) {
   const cards = [];
 
   for (let i = 1; i <= qty; i++) {
-    cards.push(<SkeletonCard />);
+    cards.push(<SkeletonCard key={i} />);
   }
 
   return cards;
