@@ -8,7 +8,9 @@ export function Card({ pokemon }: { pokemon: Pokemon }) {
   return (
     <>
       <div
-        onClick={() => navigate(`/pokemons/${pokemon.id}`, { state: pokemon })}
+        onClick={() =>
+          navigate(`/pokemons/${pokemon.name}`, { state: pokemon })
+        }
         className=" relative flex items-center w-full max-w-96 min-h-36 cursor-pointer border hover:shadow-lg bg-slate-300 hover:animate-bounce rounded-lg p-4"
       >
         <LazyImage

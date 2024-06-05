@@ -10,13 +10,13 @@ export default function Pokemon() {
   const params = useParams();
 
   useEffect(() => {
-    const findPokemon = pokemons.find((p) => p.name === params.id);
+    const findPokemon = pokemons.find((p) => p.name === params.name);
 
     if (
       pokemons.length > 0 &&
       (findPokemon == null || findPokemon == undefined)
     ) {
-      navigate("/not-found", { state: params.id });
+      navigate("/not-found", { state: params.name });
       return;
     }
 
@@ -47,10 +47,15 @@ export default function Pokemon() {
               <ul className="flex gap-2">
                 {pokemon?.types.map((t, i, a) => {
                   const isLastItem = i < a.length - 1;
-                  console.log(isLastItem);
+                  // console.log(isLastItem);
 
                   return (
-                    <Link to="/" key={t.type.name}>
+                    <Link
+                      className="bg-blue-400 border rounded-md p-2"
+                      key={t.type.name}
+                      to={`/type/${t.type.name}`}
+                      state={{ q: "type", value: t.type.name }}
+                    >
                       {t.type.name.toUpperCase()}
                     </Link>
                   );
