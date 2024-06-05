@@ -11,7 +11,17 @@ interface NavbarItemProps
 export function NavbarItem({ item, ...props }: NavbarItemProps) {
   return (
     <li {...props}>
-      <NavLink to={item.slug}>{item.title}</NavLink>
+      <NavLink
+        className={({ isActive }) => {
+          if (isActive) {
+            return "text-red-500";
+          }
+          return "";
+        }}
+        to={item.slug}
+      >
+        {item.title}
+      </NavLink>
     </li>
   );
 }
