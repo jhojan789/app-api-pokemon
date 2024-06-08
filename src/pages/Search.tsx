@@ -15,11 +15,15 @@ export function Search(): JSX.Element {
         getPokemonsByType({ type: location.state.value, pokemons: pokemons })
       );
     }
-  }, []);
+  }, [pokemons]);
+  console.log(pokemons);
+
   return (
     <main>
+      <h1 className="font-bold text-center mb-6">
+        {location.state.value.toUpperCase()}
+      </h1>
       <section className="grid justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-        <h1 className="font-bold">{location.state.value.toUpperCase()}</h1>
         {typedPokemons.length == 0 && <Skeleton qty={9} />}
 
         {typedPokemons.map((pokemon) => (
