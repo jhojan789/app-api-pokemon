@@ -1,3 +1,4 @@
+import { TypeButton } from "@/components/TypeButton";
 import { useContextApp } from "@/context/ContextProvider";
 import { Suspense, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -45,20 +46,8 @@ export default function Pokemon() {
             <div className=" rounded-md  bg-blue-200 shadow-md p-4">
               <h3 className="font-bold">TYPE</h3>
               <ul className="flex gap-2">
-                {pokemon?.types.map((t, i, a) => {
-                  const isLastItem = i < a.length - 1;
-                  // console.log(isLastItem);
-
-                  return (
-                    <Link
-                      className="bg-blue-400 border rounded-md p-2"
-                      key={t.type.name}
-                      to={`/type/${t.type.name}`}
-                      state={{ q: "type", value: t.type.name }}
-                    >
-                      {t.type.name.toUpperCase()}
-                    </Link>
-                  );
+                {pokemon?.types.map((t) => {
+                  return <TypeButton type={t} />;
                 })}
               </ul>
             </div>
