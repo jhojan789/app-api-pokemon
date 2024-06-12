@@ -1,6 +1,7 @@
 import { Card } from "@/components/Card";
 import { Skeleton } from "@/components/Skeleton";
 import { useContextApp } from "@/context/ContextProvider";
+import { getPokemonTypeBgColor } from "@/utils/Colors";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -16,13 +17,18 @@ export function Search(): JSX.Element {
       );
     }
   }, [pokemons]);
-  console.log(pokemons);
 
   return (
     <main>
-      <h1 className="font-bold text-center mb-6">
-        {location.state.value.toUpperCase()}
-      </h1>
+      <div className="flex justify-center">
+        <h1
+          className={`font-bold text-center mb-6 w-fit py-1 px-5 rounded-lg text-gray-200 shadow-lg border ${getPokemonTypeBgColor(
+            location.state.value
+          )}`}
+        >
+          {location.state.value.toUpperCase()}
+        </h1>
+      </div>
       <section className="grid justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
         {typedPokemons.length == 0 && <Skeleton qty={9} />}
 
