@@ -11,9 +11,9 @@ export default function Layout() {
     <>
       {openMobileMenu && <MobileNavbar />}
       <Navbar />
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap gap-1">
         {types.map((t) => (
-          <TypeButton name={t} />
+          <TypeButton key={t} name={t} />
         ))}
       </div>
 

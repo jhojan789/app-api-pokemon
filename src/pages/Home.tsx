@@ -6,7 +6,7 @@ export default function Home() {
   const { pokemons } = useContextApp();
 
   return (
-    <main>
+    <main className="mt-6">
       <section className="grid justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
         {pokemons.length == 0 && <Skeleton qty={9} />}
 

@@ -22,7 +22,7 @@ export function Search(): JSX.Element {
     <main>
       <div className="flex justify-center">
         <h1
-          className={`font-bold text-center mb-6 w-fit py-1 px-5 rounded-lg text-gray-200 shadow-lg border ${getPokemonTypeBgColor(
+          className={`font-bold text-center my-6 w-fit py-1 px-5 rounded-lg text-gray-200 shadow-lg border ${getPokemonTypeBgColor(
             location.state.value
           )}`}
         >
