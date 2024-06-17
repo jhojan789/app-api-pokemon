@@ -1,4 +1,8 @@
-import { getPokemonDetailByURL, getPokemonsAPI } from "@/api/pokemon";
+import {
+  getPokemonDetailByURL,
+  getPokemonTypes,
+  getPokemonsAPI,
+} from "@/api/pokemon";
 import {
   ReactNode,
   createContext,
@@ -11,6 +15,7 @@ const Context = createContext<Context>({
   navbarItems: [],
   openMobileMenu: false,
   pokemons: [],
+  types: [],
   setOpenMobileMenu: () => {},
   setPokemons: () => {},
 });
@@ -24,6 +29,8 @@ export function ContextProvider({ children }: { children: ReactNode }) {
     return false;
   });
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+
+  const [types, setTypes] = useState<string[]>([]);
 
   const navbarItems = [
     {
@@ -43,8 +50,12 @@ export function ContextProvider({ children }: { children: ReactNode }) {
     (async () => {
       try {
         const pokemonsArray = [];
+        const types = [];
 
         const response = await getPokemonsAPI();
+        const typesResponse = await getPokemonTypes();
+
+        console.log(typesResponse.results);
 
         for await (const pokemon of response.results) {
           const pokemonDetails = await getPokemonDetailByURL(pokemon.url);
@@ -61,13 +72,20 @@ export function ContextProvider({ children }: { children: ReactNode }) {
             stats: pokemonDetails.stats,
           });
         }
-
         setPokemons(pokemonsArray);
+
+        for await (const type of typesResponse.results) {
+          types.push(type.name);
+        }
+
+        setTypes(types);
       } catch (error) {
         console.log(error);
       }
     })();
   }, []);
+
+  console.log(types);
 
   return (
     <Context.Provider
@@ -75,6 +93,7 @@ export function ContextProvider({ children }: { children: ReactNode }) {
         navbarItems,
         openMobileMenu,
         pokemons,
+        types,
         setOpenMobileMenu,
         setPokemons,
       }}

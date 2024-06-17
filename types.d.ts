@@ -34,6 +34,7 @@ type Context = {
   navbarItems: NavbarItem[];
   openMobileMenu: boolean;
   pokemons: Pokemon[];
+  types: string[];
   setOpenMobileMenu: React.Dispatch<React.SetStateAction<boolean>>;
   setPokemons: React.Dispatch<React.SetStateAction<Pokemon[]>>;
 };

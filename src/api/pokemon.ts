@@ -19,3 +19,13 @@ export async function getPokemonDetailByURL(url: string) {
     console.log(error);
   }
 }
+
+export async function getPokemonTypes() {
+  try {
+    const response = await fetch("https://pokeapi.co/api/v2/type");
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
