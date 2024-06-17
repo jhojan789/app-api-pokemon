@@ -16,7 +16,7 @@ export function Search(): JSX.Element {
         getPokemonsByType({ type: location.state.value, pokemons: pokemons })
       );
     }
-  }, [pokemons]);
+  }, [pokemons, location.pathname]);
 
   return (
     <main>

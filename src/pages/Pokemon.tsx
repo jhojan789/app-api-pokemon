@@ -1,7 +1,7 @@
 import { TypeButton } from "@/components/TypeButton";
 import { useContextApp } from "@/context/ContextProvider";
-import { Suspense, useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Pokemon() {
   const { pokemons } = useContextApp();
@@ -25,7 +25,7 @@ export default function Pokemon() {
   }, [pokemons]);
 
   return (
-    <main className="grid grid-cols-1 grid-rows-2 md:grid-cols-2">
+    <main className="grid grid-cols-1 md:grid-cols-2">
       {!pokemon && <div>Loading...</div>}
 
       {pokemon && (
@@ -47,7 +47,7 @@ export default function Pokemon() {
               <h3 className="font-bold">TYPE</h3>
               <ul className="flex gap-2">
                 {pokemon?.types.map((t) => {
-                  return <TypeButton type={t} />;
+                  return <TypeButton key={t.type.name} name={t.type.name} />;
                 })}
               </ul>
             </div>

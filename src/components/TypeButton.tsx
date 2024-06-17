@@ -1,12 +1,10 @@
 import { getPokemonTypeBgColor } from "@/utils/Colors";
 import { Link } from "react-router-dom";
 
-export function TypeButton({ type }: { type: PokemonType }) {
-  const name = type.type.name;
-
+export function TypeButton({ name }: { name: string }) {
   return (
     <Link
-      className={`border rounded-md p-2 text-gray-200 ${getPokemonTypeBgColor(
+      className={`border rounded-md p-2 text-white ${getPokemonTypeBgColor(
         name
       )}`}
       key={name}
