@@ -31,6 +31,11 @@ export default function Pokemon() {
       {pokemon && (
         <>
           <section>
+            <div className="flex justify-center mt-2">
+              <h1 className="text-center font-bold border p-2 w-fit rounded-lg shadow-md">
+                {pokemon?.name.toUpperCase()}
+              </h1>
+            </div>
             <div>
               <img
                 src={pokemon?.image}
@@ -38,9 +43,6 @@ export default function Pokemon() {
                 className="w-full"
               />
             </div>
-            <h1 className="text-center font-bold mb-3">
-              {pokemon?.name.toUpperCase()}
-            </h1>
           </section>
           <section className="flex flex-col gap-3">
             <div className=" rounded-md  bg-blue-200 shadow-md p-4">
