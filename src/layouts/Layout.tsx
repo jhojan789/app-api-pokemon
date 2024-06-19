@@ -18,6 +18,7 @@ export default function Layout() {
       </div>
 
       <Outlet />
+      <footer>Created by Jhojan Tobón</footer>
     </>
   );
 }

@@ -55,7 +55,7 @@ export function ContextProvider({ children }: { children: ReactNode }) {
         const response = await getPokemonsAPI();
         const typesResponse = await getPokemonTypes();
 
-        console.log(typesResponse.results);
+        // console.log(typesResponse.results);
 
         for await (const pokemon of response.results) {
           const pokemonDetails = await getPokemonDetailByURL(pokemon.url);
@@ -85,7 +85,7 @@ export function ContextProvider({ children }: { children: ReactNode }) {
     })();
   }, []);
 
-  console.log(types);
+  // console.log(types);
 
   return (
     <Context.Provider
