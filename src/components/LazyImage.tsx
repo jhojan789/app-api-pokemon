@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { LoadingCard } from "./LoadingCard";
 
 export function LazyImage({
   image,
